@@ -11,8 +11,7 @@ export default function Home() {
           <SearchBar />
 
           {/* Profile Icon */}
-          <div className="flex mb-6">
-            <div className="w-8 h-8 rounded-full bg-[#733535]"></div>
+          <div className="flex mb-6">    
           </div>
 
           {/* Welcome Content */}

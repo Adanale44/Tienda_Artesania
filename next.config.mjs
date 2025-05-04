@@ -8,8 +8,14 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['placeholder.com'],
+    domains: ['placeholder.com', 'via.placeholder.com', 'v0.dev'],
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
 }
 

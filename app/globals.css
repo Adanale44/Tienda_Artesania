@@ -15,6 +15,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer components {
@@ -23,14 +24,42 @@ body {
   }
 
   .buy-button {
-    @apply bg-[#488f4a] text-white py-1 px-6 rounded-sm text-lg font-medium hover:bg-opacity-90;
+    @apply bg-[#488f4a] text-white py-1 px-6 rounded-sm font-medium hover:bg-opacity-90 transition-colors;
   }
 
   .contact-button {
-    @apply bg-[#373434] text-white py-1 px-4 rounded-sm text-sm hover:bg-opacity-90;
+    @apply bg-[#373434] text-white py-1 px-4 rounded-sm hover:bg-opacity-90 transition-colors;
   }
 
   .product-button {
-    @apply bg-[#488f4a] text-white py-1 px-4 rounded-sm text-sm hover:bg-opacity-90;
+    @apply bg-[#488f4a] text-white py-1 px-4 rounded-sm hover:bg-opacity-90 transition-colors;
+  }
+
+  /* Clase específica para el contenedor de imágenes */
+  .image-container {
+    @apply relative bg-white rounded-sm overflow-hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Proporción cuadrada */
+  }
+
+  /* Clase para la imagen dentro del contenedor */
+  .product-image {
+    @apply absolute inset-0 w-full h-full object-contain p-2;
+  }
+}
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 640px) {
+  input,
+  button {
+    font-size: 16px; /* Evita zoom en iOS al hacer focus en inputs */
+  }
+}
+
+/* Mejoras para pantallas grandes */
+@media (min-width: 1280px) {
+  .max-w-4xl {
+    max-width: 1024px;
   }
 }
