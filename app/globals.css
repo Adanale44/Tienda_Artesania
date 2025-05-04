@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #d9ccb4;
+  --foreground: #373434;
+  --primary: #488f4a;
+  --accent: #733535;
+  --secondary: #693724;
+  --clay: #c4825e;
+  --muted: #716951;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@layer components {
+  .search-bar {
+    @apply flex items-center bg-white rounded-sm border border-[#373434] px-2;
+  }
+
+  .buy-button {
+    @apply bg-[#488f4a] text-white py-1 px-6 rounded-sm text-lg font-medium hover:bg-opacity-90;
+  }
+
+  .contact-button {
+    @apply bg-[#373434] text-white py-1 px-4 rounded-sm text-sm hover:bg-opacity-90;
+  }
+
+  .product-button {
+    @apply bg-[#488f4a] text-white py-1 px-4 rounded-sm text-sm hover:bg-opacity-90;
+  }
+}
