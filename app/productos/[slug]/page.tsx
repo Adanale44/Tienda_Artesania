@@ -1,10 +1,14 @@
-import Navbar from "@/components/navbar"
-import BackButton from "@/components/back-button"
-import SearchBar from "@/components/search-bar"
-import { getProductBySlug } from "@/lib/products"
+import Navbar from "@/components/navbar";
+import BackButton from "@/components/back-button";
+import SearchBar from "@/components/search-bar";
+import { getProductBySlug } from "@/lib/products";
 
-export default function ProductDetail({ params }: { params: { slug: string } }) {
-  const product = getProductBySlug(params.slug)
+export default function ProductDetail({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const product = getProductBySlug(params.slug);
 
   // Fallback en caso de que no se encuentre el producto
   if (!product) {
@@ -14,18 +18,20 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
           <div className="max-w-4xl mx-auto p-3 sm:p-4">
             <SearchBar />
             <BackButton />
-            <div className="flex mb-4 sm:mb-6">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#733535]"></div>
-            </div>
+            <div className="flex mb-4 sm:mb-6"></div>
             <div className="text-center py-8 sm:py-12">
-              <h1 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-4">Producto no encontrado</h1>
-              <p className="text-sm sm:text-base">Lo sentimos, el producto que buscas no está disponible.</p>
+              <h1 className="text-xl sm:text-2xl font-medium mb-3 sm:mb-4">
+                Producto no encontrado
+              </h1>
+              <p className="text-sm sm:text-base">
+                Lo sentimos, el producto que buscas no está disponible.
+              </p>
             </div>
           </div>
         </div>
         <Navbar />
       </main>
-    )
+    );
   }
 
   return (
@@ -57,10 +63,16 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
             </div>
 
             <div className="sm:w-1/2">
-              <h1 className="text-lg sm:text-xl font-medium mb-2 sm:mb-4">{product.name}</h1>
-              <p className="text-base sm:text-lg font-bold mb-4 sm:mb-6">{product.price}</p>
+              <h1 className="text-lg sm:text-xl font-medium mb-2 sm:mb-4">
+                {product.name}
+              </h1>
+              <p className="text-base sm:text-lg font-bold mb-4 sm:mb-6">
+                {product.price}
+              </p>
 
-              <button className="buy-button w-full mb-4 text-sm sm:text-base py-2">Comprar</button>
+              <button className="buy-button w-full mb-4 text-sm sm:text-base py-2">
+                Comprar
+              </button>
 
               <div className="text-xs sm:text-sm mt-4 sm:mt-8 space-y-3 sm:space-y-4">
                 <p className="mb-2">{product.description}</p>
@@ -75,12 +87,14 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
                 </div>
 
                 <p className="text-[10px] sm:text-xs">
-                  <span className="font-medium">Material del jarrón:</span> {product.material}
+                  <span className="font-medium">Material del jarrón:</span>{" "}
+                  {product.material}
                 </p>
 
                 {product.dimensions && (
                   <p className="text-[10px] sm:text-xs">
-                    <span className="font-medium">Dimensiones:</span> {product.dimensions}
+                    <span className="font-medium">Dimensiones:</span>{" "}
+                    {product.dimensions}
                   </p>
                 )}
 
@@ -98,5 +112,5 @@ export default function ProductDetail({ params }: { params: { slug: string } }) 
       {/* Footer Navigation */}
       <Navbar />
     </main>
-  )
+  );
 }
